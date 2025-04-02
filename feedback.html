@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GymPro - Feedback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="home.css">
+  <script src="jquery3.6.1.js"></script>
+  <script src="script.js" defer></script>
+  
+</head>
+<body>
+  <main>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="Home.html">GymPro</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="membership-plans.html">Membership</a></li>
+        <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+        <li class="nav-item"><a class="nav-link" href="review-form.html">Review</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-danger text-white px-3" href="javascript:void(0);" onclick="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5" style="padding-top: 100px; max-width: 700px;">
+  <h2 class="text-center mb-4">We Value Your Feedback</h2>
+  <form id="feedback-form" > 
+    <div class="form-group mb-3">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" class="form-control" required />
+    </div>
+    <div class="form-group mb-3">
+      <label for="message">Your Feedback</label>
+      <textarea id="message" class="form-control" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+  </form>
+  <div id="feedback-submissions" class="mt-4"></div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-4 mt-5">
+  <p>© 2025 GymPro. All Rights Reserved.</p>
+  <p>Follow us on: 
+    <a href="https://facebook.com" class="text-white mx-1" target="_blank">Facebook</a> | 
+    <a href="https://twitter.com" class="text-white mx-1" target="_blank">Twitter</a> |
+    <a href="https://instagram.com" class="text-white mx-1" target="_blank">Instagram</a>
+  </p>
+</footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function logout() {
+    sessionStorage.setItem('loggedIn', 'false');
+    window.location.href = 'login.html';
+  }
+</script>
+</body>
+</html>

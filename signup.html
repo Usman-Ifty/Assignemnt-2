@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - GymPro</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <script src="bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      background: url('img/img1.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .signup-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      max-width: 600px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">GymPro</a>
+      <a href="home.html" class="btn btn-outline-light">Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="signup-container mt-5 pt-5">
+    <h2 class="text-center">Sign Up for GymPro</h2>
+    <form id="signupForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="mb-3"> 
+        <label for="confirm-password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+    </form>
+    <p class="text-center mt-3">Already have an account? <a href="login.html" class="text-white">Login here</a></p>
+  </div>
+
+  <footer class="bg-dark text-white text-center p-4">
+    <p>© 2025 GymPro. All Rights Reserved.</p>
+    <p>Follow us on: 
+        <a href="https://facebook.com" target="_blank">Facebook</a> | 
+        <a href="https://twitter.com" target="_blank">Twitter</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+    </p>
+</footer>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if (users.some(user => user.email === email)) {
+        alert("A user with this email already exists. Please use a different email.");
+        return;
+      }
+
+      const newUser = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Sign-up successful! Redirecting to login...");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

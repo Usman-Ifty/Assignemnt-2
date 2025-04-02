@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gym Management System</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery3.6.1.js"></script>
+  <script src="script.js" defer></script>
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- Notification Popup -->
+  <div id="notification-popup" class="notification-popup">
+    <div class="notification-content">
+      <p>🔔 New Gym Services Are Available!</p>
+      <button onclick="closeNotification()">Close</button>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">GymPro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership-plans.html">Membership Plans</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="review-form.html">Review</a></li>
+          <li class="nav-item">
+            <a id="logout-button" class="nav-link btn btn-danger text-white px-3 hidden" href="javascript:void(0);" onclick="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary text-white px-3" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero-section" style="background: url('img/img5.jpg') no-repeat center center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+    <div class="container">
+      <h1>Transform Your Body, Transform Your Life!</h1>
+      <p>Join our gym and start your fitness journey today.</p>
+      <a href="signup.html" id="join-button" class="btn btn-lg btn-danger">Join Now</a>
+    </div>
+  </header>
+
+  <!-- Feature Buttons -->
+  <div class="container my-5" style="padding-top: 100px;">
+    <h2 class="text-center mb-4">Explore Our Features</h2>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="membership-plans.html" class="btn btn-primary btn-lg feature-btn">View Membership Plans</a>
+      <a href="contact-us.html" class="btn btn-success btn-lg feature-btn">Contact Us</a>
+      <a href="feedback.html" class="btn btn-info btn-lg feature-btn">Give Feedback</a>
+      <a href="review-form.html" class="btn btn-danger btn-lg feature-btn">Write a Review</a>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="container my-5" id="services">
+    <h2 class="text-center mb-4">Our Services</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="img/img10.png" class="card-img-top" alt="Personal Training" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Personal Training</h5>
+            <p class="card-text">1-on-1 training with certified fitness experts to reach your goals faster.</p>
+            <a href="#" class="btn btn-outline-primary mt-auto">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="img/img3.jpg" class="card-img-top" alt="Cardio Zone" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Cardio Workouts</h5>
+            <p class="card-text">Burn fat and improve stamina with state-of-the-art cardio equipment.</p>
+            <a href="#" class="btn btn-outline-primary mt-auto">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="img/img7.jpg" class="card-img-top" alt="Yoga Classes" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Yoga Classes</h5>
+            <p class="card-text">Enhance flexibility, reduce stress, and find your inner peace.</p>
+            <a href="#" class="btn btn-outline-primary mt-auto">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Meet Our Trainers</h2>
+    <div class="row" id="trainer-list"></div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Client's Reviews</h2>
+    <div class="row" id="testimonial-list"></div>
+  </section>
+
+  <!-- Notification Button -->
+  <button id="notify-btn" class="btn btn-warning position-fixed top-50 end-0 translate-middle-y">🔔 Notifications</button>
+
+  <!-- Chatbot -->
+  <div class="chat-icon" onclick="toggleChat()">💬</div>
+  <div class="chatbot-container" id="chatbot">
+    <div class="chat-header">
+      GymPro Chatbot
+      <span class="close-chat" onclick="toggleChat()">❌</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <p class="chat-message bot-message">Hi! How can I help you today?</p>
+    </div>
+    <div class="chat-options">
+      <button onclick="sendOption('Membership Plans')">Membership Plans</button>
+      <button onclick="sendOption('Trainers')">Trainers</button>
+      <button onclick="sendOption('Location')">Location</button>
+      <button onclick="sendOption('Contact')">Contact</button>
+      <button onclick="sendOption('Gym Timings')">Gym Timings</button>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Ask something..." onkeypress="handleKeyPress(event)" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-4 mt-5">
+    <p>© 2025 GymPro. All Rights Reserved.</p>
+    <p>
+      Follow us on:
+      <a href="https://facebook.com" class="text-white mx-1" target="_blank">Facebook</a> |
+      <a href="https://twitter.com" class="text-white mx-1" target="_blank">Twitter</a> |
+      <a href="https://instagram.com" class="text-white mx-1" target="_blank">Instagram</a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>

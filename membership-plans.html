@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership Plans</title>
+  <link rel="stylesheet" href="home.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card .card-body .btn {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand" href="Home.html">GymPro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="membership-plans.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="review-form.html">Review</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger text-white px-3" href="javascript:void(0);" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Membership Plans -->
+  <div class="container my-5" style="padding-top: 80px;">
+    <h1 class="text-center mb-4">Membership Plans</h1>
+    <p class="text-center mb-5">Choose the best plan that suits your fitness goals.</p>
+
+    <div class="row">
+      <!-- Basic -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="img/img3.jpg" class="card-img-top" alt="Basic Plan" />
+          <div class="card-body">
+            <h5 class="card-title">Basic Plan</h5>
+            <p class="card-text">Access to limited features.</p>
+            <p class="card-text"><strong>$10/month</strong></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicPlanModal">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intermediate -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="img/img2.jpg" class="card-img-top" alt="Intermediate Plan" />
+          <div class="card-body">
+            <h5 class="card-title">Intermediate Plan</h5>
+            <p class="card-text">Includes personal training sessions and group fitness classes.</p>
+            <p class="card-text"><strong>$20/month</strong></p>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#intermediatePlanModal">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="img/img9.jpg" class="card-img-top" alt="Professional Plan" />
+          <div class="card-body">
+            <h5 class="card-title">Professional Plan</h5>
+            <p class="card-text">Includes nutrition guidance, advanced training, and VIP access.</p>
+            <p class="card-text"><strong>$30/month</strong></p>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#professionalPlanModal">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="basicPlanModal" tabindex="-1" aria-labelledby="basicPlanModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Basic Membership Plan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Includes access to all gym equipment and standard locker facilities.</p>
+            <p><strong>Price: $10/month</strong></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="intermediatePlanModal" tabindex="-1" aria-labelledby="intermediatePlanModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Intermediate Membership Plan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Includes everything in the Basic Plan plus personal training sessions and group fitness classes.</p>
+            <p><strong>Price: $20/month</strong></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="professionalPlanModal" tabindex="-1" aria-labelledby="professionalPlanModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Professional Membership Plan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Includes everything in the Intermediate Plan plus nutrition guidance, advanced training, and VIP access.</p>
+            <p><strong>Price: $30/month</strong></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="bg-dark text-white text-center p-4 mt-5">
+  <p>© 2025 GymPro. All Rights Reserved.</p>
+  <p>Follow us on: 
+    <a href="https://facebook.com" class="text-white mx-1" target="_blank">Facebook</a> | 
+    <a href="https://twitter.com" class="text-white mx-1" target="_blank">Twitter</a> |
+    <a href="https://instagram.com" class="text-white mx-1" target="_blank">Instagram</a>
+  </p>
+</footer>
+</main>
+
+  <!-- Bootstrap JS + Logout Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function logout() {
+      // Clear login status and redirect
+      sessionStorage.setItem('loggedIn', 'false');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
